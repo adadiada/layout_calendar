@@ -1,0 +1,28 @@
+$calendar-columns: 7;
+$gap-size: 1px;
+$day-size: 100px;
+$week: 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat';
+
+body {
+  margin: 0;
+}
+
+.calendar {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap-size;
+  width: calc($calendar-columns + 1) * 1;
+
+  &__day {
+    text-align: center;
+    position: absolute;
+    height: $day-size;
+    width: $day-size;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    gap: 1px;
+    top: 10px;
+    font-style: 30px;
+    background-color: #eee;
+  }
+}
