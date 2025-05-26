@@ -13,12 +13,16 @@ $days: (
 
 body {
   margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .calendar {
   display: flex;
   flex-wrap: wrap;
-  width: calc(($calendar-cell + 1) * $day-size);
+  width: calc($calendar-cell * $day-size + ($gap-size * 6));
   gap: $gap-size;
 }
 
@@ -50,13 +54,17 @@ body {
 }
 
 @each $day, $numb in $days {
-  .calendar--start-day-#{$day}:first-child {
+  .calendar--start-day-#{$day} :first-child {
     margin-left: $numb * ($day-size + $gap-size);
   }
 }
 
 @for $i from 28 through 31 {
-  .calendar--month-length:nth-child(#{$i}) {
-    content: '#{$i}';
+  .calendar--month-length-#{$i} {
+    @for $k from $i through 31 {
+      :nth-child(#{$k + 1}) {
+        display: none;
+      }
+    }
   }
 }
