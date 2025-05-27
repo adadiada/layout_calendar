@@ -54,7 +54,7 @@ body {
 }
 
 @each $day, $numb in $days {
-  .calendar--start-day-#{$day} :first-child {
+  .calendar--start-day-#{$day}:first-child {
     margin-left: $numb * ($day-size + $gap-size);
   }
 }
