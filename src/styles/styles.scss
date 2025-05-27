@@ -1,6 +1,7 @@
 $calendar-cell: 7;
 $gap-size: 1px;
 $day-size: 100px;
+$calendar-paddind: 10px;
 $days: (
   'mon': 0,
   'tue': 1,
@@ -22,8 +23,13 @@ body {
 .calendar {
   display: flex;
   flex-wrap: wrap;
-  width: calc($calendar-cell * $day-size + ($gap-size * 6));
+  width: calc(
+    $calendar-cell * $day-size + ($gap-size * 6) + $calendar-paddind * 2
+  );
   gap: $gap-size;
+  padding: $calendar-paddind;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .calendar__day {
@@ -54,7 +60,7 @@ body {
 }
 
 @each $day, $numb in $days {
-  .calendar--start-day-#{$day}:first-child {
+  .calendar--start-day-#{$day} :first-child {
     margin-left: $numb * ($day-size + $gap-size);
   }
 }
